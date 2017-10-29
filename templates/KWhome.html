@@ -5,36 +5,63 @@
 <title>WOOP</title>
 </head>
 <body>
- 
-<h1 style="text-align:center">WOOP自我管理系统</h1>
-<div style="text-align:center">
-<img src="http://www.youmeitu.com/uploads/allimg/161006/1-161006193638.jpg" alt="Picture Miss" width='200' height='160')>
+
+<div id="container" style="width:1350px">
+
+<div id="header" style="text-align:center; color:white; background-color:black; padding:12px">
+<h1>WOOP自我管理系统</h1>
 </div>
 
-<form action='user_request' method='get' style="text-align:center">
+<form action='user_request' method='get'>
+<div id="menu" style="line-height:5px;
+    background-color:#eeeeee;
+    height:465px;
+    width:700px;
+    float:left;
+    padding:20px">
 <fieldset>
-<legend>设定WOOP内容</legend>
-期望：<input type='text' name='wish'>（Wish）
+<legend style="text-align:center"><h2>设定WOOP内容</h2></legend>
 <br/><br/>
-结果：<input type='text' name='outcome'>（Outcome）
+<h3>期望（Wish）<input style="width:350px; height:25px" type='text' name='wish'></h3>
 <br/><br/>
-障碍：<input type='text' name='obstacle'>（Obstacal）
+<h3>结果（Outcome）<input style="width:350px; height:25px" type='text' name='outcome'></h3>
 <br/><br/>
-计划内容：<input type='text' name='plan'>（Plan）
+<h3>障碍（Obstacal）<input style="width:350px; height:25px" type='text' name='obstacle'></h3>
 <br/><br/>
-时间：<input type='date' name='date' value='2017-10-22'>
-<input type='time' name='time' value='13:00'>
-地点：<select type='text' name='where' value='option'>
+<h3>计划内容（Plan）<input style="width:350px; height:25px" type='text' name='plan'></h3>
+<br/><br/>
+<h3>时间：<input style="width:200px; height:25px" type='date' name='date' value='2017-10-22'>
+<input style="width:100px; height:25px" type='time' name='time' value='13:00'>&nbsp;&nbsp;
+地点：<select style="width:80px; height:25px" type='text' name='where' value='option'></h3>
 <option value="家里">家里</option>
 <option value="公司">公司</option>
 <option value="出差">出差</option>
 <option value="路途">路途</option>
 </select>
 <br/><br/>
-<input type='submit' name='found' value='提交'>
-<input type='submit' name='history' value='历史'>
+<br/><br/>
+
+<div style="text-align:center">
+<input style="width:100px; 
+    height:40px; 
+    color:white;
+    font-weight:bold;
+    background-color:blue" 
+    type='submit' name='found' value='创建'>
+<input style="width:100px; 
+    height:40px; 
+    color:white; 
+    font-weight:bold;
+    background-color:#66FF33"
+    type='submit' name='history' value='历史'>
+</div>
 </fieldset>
+</div>
 </form>
+
+<div id="content" style="width:600px; height:230px; float:left; padding:4px">
+<div style="text-align:center; width:600px; height:35px; color:white; background-color:blue">
+<h2>新WOOP内容</h2></div>
 
 <div>
 {% block WOOP %}
@@ -45,15 +72,21 @@
 {% block error %}
 {% endblock %}
 </div>
+</div>
 
+<div id="content" style="width:600px; height:230px; float:left; padding:4px">
+<div style="text-align:center; width:600px; height:35px; color:white; background-color:#66FF33">
+<h2>历史WOOP</h2></div>
 <div>
 {% block history %}
 {% endblock %}
 </div>
+</div>
 
-<div>
-{% block help %}
-{% endblock %}
+</div>
+
+<div id="footer" style="text-align:center; clear:both; color:white; background-color:black; padding:5px">
+Copyright by Keep-Working
 </div>
 
 </body>

@@ -14,7 +14,7 @@ def home():
     
 @app.route('/user_request', methods=['GET', 'post']) 
 def order_request():
-    if request.args.get('found') == "提交":
+    if request.args.get('found') == "创建":
         wish = request.args.get('wish')
         outcome = request.args.get('outcome')
         obstacle = request.args.get('obstacle')
@@ -22,7 +22,7 @@ def order_request():
         date = request.args.get('date')
         time = request.args.get('time')
         where = request.args.get('where')
-        result = "【WOOP内容】---【期望】%s【结果】%s【开始时间】%s【地点】%s【行动】%s %s" %(wish, outcome, date, where, time, plan)
+        result = "你期望自己%s，达到%s的结果，计划从%s %s开始，在%s %s" %(wish, outcome, date, time, where, plan)
         if wish == '' or outcome == '' or obstacle == '' or plan == '':
             return render_template('error.html')
         else:
@@ -31,6 +31,8 @@ def order_request():
     else:
         #request.args.get('history') == "历史":
         return render_template('history.html', history = user_woop_list)
-                
+ 
+user_woop_list.clear()
+ 
 if __name__ == '__main__':
     app.run(debug=True)
